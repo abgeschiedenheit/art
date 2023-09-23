@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+  <meta name=robots content="noindex, noarchive">
+  <title>art</title>
+  <style>
+    @font-face {
+      font-family: OpenDyslexic;
+      src: url(./fonts/OpenDyslexic-Regular.otf) format(opentype);
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: OpenDyslexic;
+      src: url(./fonts/OpenDyslexic-Italic.otf) format(opentype);
+      font-weight: normal;
+      font-style: italic;
+    }
+    @font-face {
+      font-family: OpenDyslexic;
+      src: url(./fonts/OpenDyslexic-Bold.otf) format(opentype);
+      font-weight: bold;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: OpenDyslexic;
+      src: url(./fonts/OpenDyslexic-BoldItalic.otf) format(opentype);
+      font-weight: bold;
+      font-style: italic;
+    }
+    * {
+      box-sizing: border-box;
+      font-family: OpenDyslexic, sans-serif;
+
+      --back-bg: rgb(255, 255, 255);
+      --head-bg: rgb(128, 128, 128);
+      --head-txt: rgb(255, 255, 255);
+      --pmpt-txt: #333;
+
+      --link: rgb(255, 255, 255);
+      --link-hover: rgb(237, 237, 237);
+      --intro-bg: rgb(40, 170, 98);
+      --not-found-bg: rgb(175, 98, 98);
+      --focus-outline: rgb(252, 200, 104);
+    }
+    body {
+      margin: 0 auto;
+      background: var(--back-bg);
+    }
+    a:link {
+      color: var(--link);
+    }
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: none;
+    }
+    img {
+      width: 100%;
+      border: 1px solid gray;
+    }
+    button:hover {
+      cursor: pointer;
+    }
+    header {
+      background: var(--head-bg);
+    }
+    header p {
+      color: var(--head-txt);
+    }
+    header p, header input, header button {
+      letter-spacing: 1px;
+    }
+    header button {
+      width: 23%;
+    }
+    input {
+      background: var(--back-bg);
+      width: 75%;
+      margin-top: 0.82rem;
+      text-transform: uppercase;
+    }
+    input:focus {
+      outline: 2px solid rgb(252, 200, 104);
+    }
+    .card:first-of-type {
+      margin-top: 1rem;
+    }
+    .card:last-of-type {
+      margin-bottom: 2rem;
+    }
+    .card {
+      margin: 2.8rem 0rem;
+    }
+    .description {
+      padding: 0rem 1rem;
+      line-height: 1.4;
+    }
+    .artist {
+      font-weight: bold;
+    }
+    .culture::before {
+      content: " (";
+    }
+    .culture::after {
+      content: "), ";
+    }
+    .title {
+      font-style: italic;
+    }
+    .date::before {
+      content: ", ";
+    }
+    .date::after {
+      content: ".";
+    }
+    .quote, .not-found {
+      font-size: 14px;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .intro {
+      color: var(--head-txt);
+      background: var(--intro-bg);
+    }
+    .not-found {
+      color: var(--head-txt);
+      background: var(--not-found-bg);
+    }
+    .footer {
+      width: 100%;
+      letter-spacing: 1px;
+      margin-bottom: 1.4rem;
+    }
+    .container {
+      margin: 0 auto;
+      max-width: 45rem;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .column-full {
+      flex: 100%;
+    }
+    .column-half {
+      flex: 50%;
+    }
+    .hidden {
+      display: none;
+    }
+    @media only screen and (max-width: 414px) {
+      form {
+        margin-top: -1rem;
+        margin-bottom: 1.2rem;
+      }
+      header input {
+        width: 100%;
+      }
+      header button {
+        margin-top: 1rem;
+        width: 100%;
+      }
+      .container {
+        width: 20rem;
+      }
+      .column-half {
+        flex: 100%;
+      }
+    }
+  </style>
+  <noscript>Please enable Javascript in order to use the application.</noscript>
+  <header>
+    <div class=container>
+      <div class=row>
+        <div class=column-half>
+          <p><b>ART</b></p>
+        </div>
+        <div class=column-half>
+          <form>
+            <input type=search pattern="[A-Za-z\sÁ-Źá-ź]+" placeholder="WILLIAM BLAKE..." />
+            <button>SEARCH</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class=container>
+      <div class="quote intro view">
+        <p><a href=https://harvardartmuseums.org/>Harvard Art Museums</a> Search Client</p>
+      </div>
+      <div class=row>
+        <div class=column-full>
+          <div class="view deck">
+          </div>
+        </div>
+      </div>
+      <div class=row>
+        <div class=column-full>
+          <div class="view hidden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class=container>
+      <div class=row>
+        <div class=column-full>
+          <button class="footer hidden">BACK TO TOP</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src=js/data.js></script>
+  <script src=js/main.js></script>
+</html>
