@@ -11,19 +11,6 @@ $top.addEventListener('click', function () {
   });
 });
 
-$input.addEventListener('input', function () {
-  $input.setCustomValidity('');
-  $input.checkValidity();
-});
-
-$input.addEventListener('invalid', function () {
-  if ($input.value === '') {
-    $input.setCustomValidity('Search by keyword...');
-  } else {
-    $input.setCustomValidity('Use only alphabetic letters...');
-  }
-});
-
 $form.addEventListener('submit', function () {
   event.preventDefault();
 
@@ -47,19 +34,8 @@ function request(keyword) {
   xhr.addEventListener('load', function () {
     if ($deck.hasChildNodes() === true) {
       $deck.innerHTML = '';
-    }
 
-    document.querySelector('.quote').className = 'quote hidden';
-
-    if (xhr.response.records.length === 0) {
-      const $notfoundparagraph = document.createElement('p');
-
-      $notfoundparagraph.className = 'quote not-found';
-      $notfoundparagraph.textContent = "No results. Try entering a keyword.";
-
-      $deck.append($notfoundparagraph);
-
-      $top.className = 'footer hidden';
+      document.querySelector('.intro').className = 'prompt intro hidden';
     }
 
     for (let i = 0; i < xhr.response.records.length; i++) {
@@ -105,7 +81,13 @@ function request(keyword) {
       $description.alt = $artist.textContent;
       $description.title = $artist.textContent;
 
+      document.querySelector('.no-results').className = 'prompt no-results hidden';
       $top.className = 'footer view';
+    }
+
+    if (xhr.response.records.length === 0) {
+      document.querySelector('.no-results').className = 'prompt no-results view';
+      $top.className = 'footer hidden';
     }
   });
   xhr.send();

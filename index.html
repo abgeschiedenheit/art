@@ -35,14 +35,17 @@
 
       --back-bg: rgb(255, 255, 255);
       --head-bg: rgb(128, 128, 128);
+      --head-bt: rgb(103, 103, 103);
       --head-txt: rgb(255, 255, 255);
-      --pmpt-txt: #333;
+      --pmpt-txt: rgb(66, 66, 66);
 
       --link: rgb(255, 255, 255);
-      --link-hover: rgb(237, 237, 237);
-      --intro-bg: rgb(40, 170, 98);
-      --not-found-bg: rgb(175, 98, 98);
-      --focus-outline: rgb(252, 200, 104);
+      --intro-bg: rgb(60, 173, 111);
+      --not-found-bg: #db645e;
+      --butt-border: rgb(192, 192, 192);
+      --butt-hover: rgb(165, 165, 165);
+      --input-border: #afd8fb;
+      --focus-outline: #7cc2ff;
     }
     body {
       margin: 0 auto;
@@ -52,48 +55,69 @@
       color: var(--link);
     }
     a:hover {
-      color: var(--link-hover);
       text-decoration: none;
+    }
+    a:visited {
+      color: var(--link);
     }
     img {
       width: 100%;
-      border: 1px solid gray;
+    }
+    button {
+      border-radius: 0.2em;
+      border: 2px solid var(--butt-border);
+      cursor: pointer;
     }
     button:hover {
-      cursor: pointer;
+      border: 2px solid var(--butt-hover);
     }
     header {
       background: var(--head-bg);
+      border-bottom: 4px solid var(--head-bt);
     }
     header p {
       color: var(--head-txt);
-    }
-    header p, header input, header button {
       letter-spacing: 1px;
     }
     header button {
-      width: 23%;
+      width: 13%;
+    }
+    .icon {
+      height: 1em;
+      fill: var(--pmpt-txt);
     }
     input {
       background: var(--back-bg);
-      width: 75%;
+      border: 3px solid var(--input-border);
+      border-radius: 0.2em;
+      padding: 0em 0.4em;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      width: 85%;
       margin-top: 0.82rem;
       text-transform: uppercase;
     }
     input:focus {
-      outline: 2px solid rgb(252, 200, 104);
+      border: 3px solid var(--focus-outline);
+      outline: 0;
+    }
+    input[type=search]::-webkit-search-cancel-button,
+    input[type=search]::-webkit-search-decoration {
+      -webkit-appearance: none;
     }
     .card:first-of-type {
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
     .card:last-of-type {
       margin-bottom: 2rem;
     }
     .card {
       margin: 2.8rem 0rem;
+      border: 2px solid var(--butt-border);
+      border-radius: 0.2em;
     }
     .description {
-      padding: 0rem 1rem;
+      padding: 0rem 1.4rem;
       line-height: 1.4;
     }
     .artist {
@@ -114,27 +138,26 @@
     .date::after {
       content: ".";
     }
-    .quote, .not-found {
-      font-size: 14px;
-      margin-top: 1rem;
+    .prompt {
       text-align: center;
+      border-radius: 0.2em;
+      margin: 1rem;
     }
     .intro {
       color: var(--head-txt);
       background: var(--intro-bg);
     }
-    .not-found {
+    .no-results {
       color: var(--head-txt);
       background: var(--not-found-bg);
     }
     .footer {
       width: 100%;
-      letter-spacing: 1px;
-      margin-bottom: 1.4rem;
+      margin-bottom: 2rem;
     }
     .container {
       margin: 0 auto;
-      max-width: 45rem;
+      max-width: 42rem;
     }
     .row {
       display: flex;
@@ -162,7 +185,7 @@
         width: 100%;
       }
       .container {
-        width: 20rem;
+        width: 18rem;
       }
       .column-half {
         flex: 100%;
@@ -178,8 +201,10 @@
         </div>
         <div class=column-half>
           <form>
-            <input type=search pattern="[A-Za-z\sÁ-Źá-ź]+" placeholder="WILLIAM BLAKE..." />
-            <button>SEARCH</button>
+            <input type=search id=search placeholder="WILLIAM BLAKE..." />
+            <button>
+              <svg class=icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+            </button>
           </form>
         </div>
       </div>
@@ -187,8 +212,11 @@
   </header>
   <main>
     <div class=container>
-      <div class="quote intro view">
-        <p><a href=https://harvardartmuseums.org/>Harvard Art Museums</a> Search Client</p>
+      <div class="prompt intro view">
+        <small><a href=https://harvardartmuseums.org/>harvard art museums</a> search client</small>
+      </div>
+      <div class="prompt no-results hidden">
+        <small>there are no results for that critera</small>
       </div>
       <div class=row>
         <div class=column-full>
@@ -208,7 +236,9 @@
     <div class=container>
       <div class=row>
         <div class=column-full>
-          <button class="footer hidden">BACK TO TOP</button>
+          <button class="footer hidden">
+            <svg class=icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
+          </button>
         </div>
       </div>
     </div>
