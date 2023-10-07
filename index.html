@@ -32,24 +32,27 @@
     * {
       box-sizing: border-box;
       font-family: OpenDyslexic, sans-serif;
+      margin: 0;
+      padding: 0;
 
       --back-bg: rgb(255, 255, 255);
-      --head-bg: rgb(128, 128, 128);
-      --head-bt: rgb(103, 103, 103);
-      --head-txt: rgb(255, 255, 255);
-      --pmpt-txt: rgb(66, 66, 66);
+      --head-bg: #eee;
+      --head-shadow: rgba(170, 170, 170, 0.2);
+      --head-txt: rgb(72, 72, 72);
+      --pmpt-txt: #fff;
+      --card-border: #aaa;
 
-      --link: rgb(255, 255, 255);
-      --intro-bg: rgb(60, 173, 111);
-      --not-found-bg: #db645e;
-      --butt-border: rgb(192, 192, 192);
-      --butt-hover: rgb(165, 165, 165);
-      --input-border: #afd8fb;
-      --focus-outline: #7cc2ff;
+      --link: #fff;
+      --intro-bg: #2ecc40;
+      --not-found-bg: #ff4136;
+      --butt-bg: #0074d9;
+      --butt-hover: rgba(255, 255, 255, 0.2);
+      --butt-shadow: rgba(17, 17, 17, 0);
+      --input-border: #aaa;
+      --focus-outline: #0074d9;
     }
     body {
       margin: 0 auto;
-      background: var(--back-bg);
     }
     a:link {
       color: var(--link);
@@ -64,20 +67,32 @@
       width: 100%;
     }
     button {
+      display: inline-block;
       border-radius: 0.2em;
-      border: 2px solid var(--butt-border);
+      border: 0;
+      background: var(--butt-bg);
+      color: var(--pmpt-txt);
+      padding: 0.36em 0.9em;
+      margin: 0.3em 0;
       cursor: pointer;
+      transition: all 0.3s;
+      vertical-align: baseline;
+      box-shadow: 0 0 var(--butt-shadow) inset;
     }
-    button:hover {
-      border: 2px solid var(--butt-hover);
+    button:hover, button:focus {
+      box-shadow: inset 0 0 0 99em var(--butt-hover);
+      border: 0;
     }
     header {
       background: var(--head-bg);
-      border-bottom: 4px solid var(--head-bt);
+      padding: 1em;
+      transition: all 0.3s;
+      box-shadow: 0 0 0.2em var(--head-shadow);
     }
-    header p {
+    header h3 {
+      margin-top: 0.3em;
       color: var(--head-txt);
-      letter-spacing: 1px;
+      font-weight: normal;
     }
     header button {
       width: 13%;
@@ -87,38 +102,32 @@
       fill: var(--pmpt-txt);
     }
     input {
-      background: var(--back-bg);
-      border: 3px solid var(--input-border);
+      border: 1px solid var(--input-border);
       border-radius: 0.2em;
-      padding: 0em 0.4em;
-      letter-spacing: 1px;
+      padding: 0.3em 0.6em;
       transition: all 0.3s;
       width: 85%;
-      margin-top: 0.82rem;
       text-transform: uppercase;
     }
     input:focus {
-      border: 3px solid var(--focus-outline);
+      border: 1px solid var(--focus-outline);
       outline: 0;
     }
     input[type=search]::-webkit-search-cancel-button,
     input[type=search]::-webkit-search-decoration {
       -webkit-appearance: none;
     }
-    .card:first-of-type {
-      margin-top: 2rem;
-    }
-    .card:last-of-type {
-      margin-bottom: 2rem;
-    }
     .card {
-      margin: 2.8rem 0rem;
-      border: 2px solid var(--butt-border);
+      overflow: hidden;
+      margin: 2rem 0;
+      border: 1px solid var(--card-border);
       border-radius: 0.2em;
+      padding: 0;
+      transition: all 0.3s ease;
     }
     .description {
-      padding: 0rem 1.4rem;
-      line-height: 1.4;
+      padding: 0.6em 0.8em;
+      margin: 0.3em 0;
     }
     .artist {
       font-weight: bold;
@@ -139,21 +148,20 @@
       content: ".";
     }
     .prompt {
+      color: var(--pmpt-txt);
       text-align: center;
+      margin-top: 1rem;
       border-radius: 0.2em;
-      margin: 1rem;
     }
     .intro {
-      color: var(--head-txt);
       background: var(--intro-bg);
     }
     .no-results {
-      color: var(--head-txt);
       background: var(--not-found-bg);
     }
     .footer {
       width: 100%;
-      margin-bottom: 2rem;
+      margin-bottom: 2.8em;
     }
     .container {
       margin: 0 auto;
@@ -197,12 +205,12 @@
     <div class=container>
       <div class=row>
         <div class=column-half>
-          <p><b>ART</b></p>
+          <h3>ART</h3>
         </div>
         <div class=column-half>
           <form>
-            <input type=search id=search placeholder="WILLIAM BLAKE..." />
-            <button>
+            <input type=search id=search placeholder="WILLIAM BLAKE...">
+            <button type=submit>
               <svg class=icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
             </button>
           </form>
