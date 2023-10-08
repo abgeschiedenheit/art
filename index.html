@@ -5,40 +5,15 @@
   <meta name=robots content="noindex, noarchive">
   <title>art</title>
   <style>
-    @font-face {
-      font-family: OpenDyslexic;
-      src: url(./fonts/OpenDyslexic-Regular.otf) format(opentype);
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: OpenDyslexic;
-      src: url(./fonts/OpenDyslexic-Italic.otf) format(opentype);
-      font-weight: normal;
-      font-style: italic;
-    }
-    @font-face {
-      font-family: OpenDyslexic;
-      src: url(./fonts/OpenDyslexic-Bold.otf) format(opentype);
-      font-weight: bold;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: OpenDyslexic;
-      src: url(./fonts/OpenDyslexic-BoldItalic.otf) format(opentype);
-      font-weight: bold;
-      font-style: italic;
-    }
     * {
       box-sizing: border-box;
-      font-family: OpenDyslexic, sans-serif;
+      font-family: sans-serif;
       margin: 0;
       padding: 0;
 
-      --back-bg: rgb(255, 255, 255);
-      --head-bg: #eee;
+      --head-bg: rgb(219, 219, 219);
       --head-shadow: rgba(170, 170, 170, 0.2);
-      --head-txt: rgb(72, 72, 72);
+      --head-txt: rgb(0, 0, 0);
       --pmpt-txt: #fff;
       --card-border: #aaa;
 
@@ -72,7 +47,7 @@
       border: 0;
       background: var(--butt-bg);
       color: var(--pmpt-txt);
-      padding: 0.36em 0.9em;
+      padding: 0.3em 0.9em 0.36em;
       margin: 0.3em 0;
       cursor: pointer;
       transition: all 0.3s;
@@ -92,7 +67,6 @@
     header h3 {
       margin-top: 0.3em;
       color: var(--head-txt);
-      font-weight: normal;
     }
     header button {
       width: 13%;
@@ -152,6 +126,7 @@
       text-align: center;
       margin-top: 1rem;
       border-radius: 0.2em;
+      padding: 0.3em 0.9em;
     }
     .intro {
       background: var(--intro-bg);
@@ -181,11 +156,8 @@
       display: none;
     }
     @media only screen and (max-width: 414px) {
-      form {
-        margin-top: -1rem;
-        margin-bottom: 1.2rem;
-      }
       header input {
+        margin-top: 1rem;
         width: 100%;
       }
       header button {
@@ -221,10 +193,10 @@
   <main>
     <div class=container>
       <div class="prompt intro view">
-        <small><a href=https://harvardartmuseums.org/>harvard art museums</a> search client</small>
+        <small><a href=https://harvardartmuseums.org/>Harvard Art Museums</a> search client.</small>
       </div>
       <div class="prompt no-results hidden">
-        <small>there are no results for that critera</small>
+        <small>There are no results for that critera.</small>
       </div>
       <div class=row>
         <div class=column-full>
