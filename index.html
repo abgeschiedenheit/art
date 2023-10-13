@@ -5,9 +5,20 @@
   <meta name=robots content="noindex, noarchive">
   <title>art</title>
   <style>
+    @font-face {
+      font-family: fudd;
+      src: url(./fudd/fudd.ttf) format(truetype);
+      font-style: normal;
+    }
+    @font-face {
+      font-family: fudd;
+      src: url(./fudd/fuddi.ttf) format(truetype);
+      font-style: italic;
+    }
     * {
       box-sizing: border-box;
-      font-family: sans-serif;
+      font-family: fudd, sans-serif;
+      font-size: 20px;
       margin: 0;
       padding: 0;
 
@@ -47,7 +58,7 @@
       border: 0;
       background: var(--butt-bg);
       color: var(--pmpt-txt);
-      padding: 0.3em 0.9em 0.36em;
+      padding: 0.2em;
       margin: 0.3em 0;
       cursor: pointer;
       transition: all 0.3s;
@@ -65,22 +76,25 @@
       box-shadow: 0 0 0.2em var(--head-shadow);
     }
     header h3 {
-      margin-top: 0.3em;
+      font-size: 42px;
+      margin-top: 0.54em;
       color: var(--head-txt);
+      letter-spacing: 1px;
     }
     header button {
-      width: 13%;
+      width: 100%;
     }
     .icon {
-      height: 1em;
+      height: 0.9em;
       fill: var(--pmpt-txt);
     }
     input {
       border: 1px solid var(--input-border);
       border-radius: 0.2em;
-      padding: 0.3em 0.6em;
+      padding: 0.3em;
       transition: all 0.3s;
-      width: 85%;
+      letter-spacing: 1px;
+      width: 100%;
       text-transform: uppercase;
     }
     input:focus {
@@ -156,13 +170,14 @@
       display: none;
     }
     @media only screen and (max-width: 414px) {
+      header h3 {
+        font-size: 32px;
+      }
       header input {
         margin-top: 1rem;
-        width: 100%;
       }
       header button {
         margin-top: 1rem;
-        width: 100%;
       }
       .container {
         width: 18rem;
