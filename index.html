@@ -8,92 +8,58 @@
   <title>art</title>
   <style>
     @font-face {
-      font-family: TiltNeon;
-      src: url(./TiltNeon-Regular-VariableFont_XROT\,YROT.ttf) format(truetype);
+      font-family: tilt;
+      src: url(./tilt.ttf) format(truetype);
     }
     * {
       box-sizing: border-box;
-      font-family: TiltNeon, sans-serif;
-      font-size: 20px;
+      font-family: tilt, sans-serif;
       margin: 0;
       padding: 0;
-
-      --head-bg: lightgray;
-      --head-shadow: rgba(170, 170, 170, 0.2);
-      --head-txt: #333;
-      --pmpt-txt: #fff;
-      --card-border: #aaa;
-
-      --link: #fff;
-      --intro-bg: #2ecc40;
-      --not-found-bg: #ff4136;
-      --butt-bg: #0074d9;
-      --butt-hover: rgba(255, 255, 255, 0.2);
-      --butt-shadow: rgba(17, 17, 17, 0);
-      --input-border: #aaa;
-      --focus-outline: #0074d9;
     }
     body {
+      background: #333;
+      color: #f9f9f9;
       margin: 0 auto;
     }
     a:link {
-      color: var(--link);
+      color: #f9f9f9
     }
     a:hover {
       text-decoration: none;
     }
     a:visited {
-      color: var(--link);
+      color: f9f9f9;
     }
     img {
       width: 100%;
     }
     button {
-      display: inline-block;
-      border-radius: 0.2em;
-      border: 0;
-      background: var(--butt-bg);
-      color: var(--pmpt-txt);
-      padding: 0.2em;
       cursor: pointer;
-      transition: all 0.3s;
-      vertical-align: baseline;
-      box-shadow: 0 0 var(--butt-shadow) inset;
-    }
-    button:hover, button:focus {
-      box-shadow: inset 0 0 0 99em var(--butt-hover);
-      border: 0;
     }
     header {
-      background: var(--head-bg);
-      padding: 1em;
-      transition: all 0.3s;
-      box-shadow: 0 0 0.2em var(--head-shadow);
+      background: gray;
+      padding: 0.8em;
     }
-    header h3 {
-      font-size: 30px;
+    h3 {
       color: var(--head-txt);
+      text-transform: uppercase;
       letter-spacing: 1px;
     }
-    header button {
-      width: 14%;
-    }
-    .icon {
-      height: 1em;
-      fill: var(--pmpt-txt);
-    }
-    input {
-      border: 1px solid var(--input-border);
-      border-radius: 0.2em;
-      padding: 0.2em 0.4em;
-      transition: all 0.3s;
+    button {
+      width: 18%;
       letter-spacing: 1px;
-      width: 84%;
       text-transform: uppercase;
     }
-    input:focus {
-      border: 1px solid var(--focus-outline);
-      outline: 0;
+    input {
+      background: #333;
+      color: #f9f9f9;
+      letter-spacing: 1px;
+      width: 80%;
+      text-transform: uppercase;
+    }
+    ::placeholder {
+      color: silver;
     }
     input[type=search]::-webkit-search-cancel-button,
     input[type=search]::-webkit-search-decoration {
@@ -102,10 +68,9 @@
     .card {
       overflow: hidden;
       margin: 2rem 0;
-      border: 1px solid var(--card-border);
+      border: 1px solid #555;
       border-radius: 0.2em;
       padding: 0;
-      transition: all 0.3s ease;
     }
     .description {
       padding: 0.6em 0.8em;
@@ -130,17 +95,16 @@
       content: ".";
     }
     .prompt {
-      color: var(--pmpt-txt);
+      color: #f9f9f9;
       text-align: center;
       margin-top: 1rem;
-      border-radius: 0.2em;
-      padding: 0.3em 0.9em;
+      padding: 0.1rem;
     }
     .intro {
-      background: var(--intro-bg);
+      background: mediumseagreen;
     }
     .no-results {
-      background: var(--not-found-bg);
+      background: #d9544d;
     }
     .footer {
       margin-bottom: 2em;
@@ -148,7 +112,7 @@
     }
     .container {
       margin: 0 auto;
-      max-width: 42rem;
+      max-width: 650px;
     }
     .row {
       display: flex;
@@ -185,13 +149,13 @@
     <div class=container>
       <div class=row>
         <div class=column-half>
-          <h3>ART</h3>
+          <h3>art</h3>
         </div>
         <div class=column-half>
           <form>
             <input type=search id=search placeholder="WILLIAM BLAKE...">
             <button type=submit>
-              <svg class=icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+              search
             </button>
           </form>
         </div>
@@ -201,10 +165,10 @@
   <main>
     <div class=container>
       <div class="prompt intro view">
-        <small><a href=https://harvardartmuseums.org/>Harvard Art Museums</a> search client.</small>
+        <small><a href=https://harvardartmuseums.org/>harvard art museums</a> search client</small>
       </div>
       <div class="prompt no-results hidden">
-        <small>There are no results for that critera.</small>
+        <small>there are no results for that critera</small>
       </div>
       <div class=row>
         <div class=column-full>
@@ -225,7 +189,7 @@
       <div class=row>
         <div class=column-full>
           <button class="footer hidden">
-            <svg class=icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
+            back to the top of the page
           </button>
         </div>
       </div>
