@@ -1,80 +1,120 @@
 <!DOCTYPE html>
-<html lang=en>
-  <meta charset=utf-8>
-  <meta name=viewport content=width=device-width>
-  <meta name=viewport content=initial-scale=1.0>
-  <meta name=robots content=noindex>
-  <meta name=robots content=noarchive>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width-device-width" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta name="robots" content="noarchive" />
   <title>art</title>
   <style>
     @font-face {
-      font-family: tilt;
-      src: url(./tilt.ttf) format(truetype);
+      font-family: EBGaramond;
+      src: url(EBGaramond-Regular.ttf) format(truetype);
+      font-style: normal;
+      font-weight: normal;
+    }
+    @font-face {
+      font-family: EBGaramond;
+      src: url(EBGaramond-Italic.ttf) format(truetype);
+      font-style: italic;
+      font-weight: normal;
+    }
+    @font-face {
+      font-family: EBGaramond;
+      src: url(EBGaramond-Bold.ttf) format(truetype);
+      font-style: normal;
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: EBGaramond;
+      src: url(EBGaramond-BoldItalic.ttf) format(truetype);
+      font-style: italic;
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: Cantarell;
+      src: url(Cantarell-Regular.ttf) format(truetype);
+      font-style: normal;
+      font-weight: normal;
+    }
+    @font-face {
+      font-family: Cantarell;
+      src: url(Cantarell-Italic.ttf) format(truetype);
+      font-style: italic;
+      font-weight: normal;
+    }
+    @font-face {
+      font-family: Cantarell;
+      src: url(Cantarell-Bold.ttf) format(truetype);
+      font-style: normal;
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: Cantarell;
+      src: url(Cantarell-BoldItalic.ttf) format(truetype);
+      font-style: italic;
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: Staatliches;
+      src: url(Staatliches-Regular.ttf) format(truetype);
     }
     * {
       box-sizing: border-box;
-      font-family: tilt, sans-serif;
-      margin: 0;
-      padding: 0;
     }
     body {
-      background: #333;
-      color: #f9f9f9;
+      font: 22px/1.5 EBGaramond, serif;
+      max-width: 620px;
+      word-spacing: 0.4rem;
       margin: 0 auto;
+      padding: 0 2rem;
     }
-    a:link {
-      color: #f9f9f9
+    main {
+      margin-top: 2rem;
+      border-top: 2px dotted silver;
     }
-    a:hover {
-      text-decoration: none;
+    p {
+      padding: 0;
+      margin: 0;
     }
-    a:visited {
-      color: f9f9f9;
+    h1 {
+      font-family: Staatliches, sans-serif;
+      font-weight: normal;
+      text-align: center;
+      line-height: normal;
     }
     img {
       width: 100%;
     }
     button {
+      font: 16px/1.5 Cantarell, sans-serif;
+      text-transform: uppercase;
       cursor: pointer;
-    }
-    header {
-      background: gray;
-      padding: 0.8em;
-    }
-    h3 {
-      color: var(--head-txt);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    button {
-      width: 18%;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      width: 100%;
     }
     input {
-      background: #333;
-      color: #f9f9f9;
-      letter-spacing: 1px;
-      width: 80%;
+      font: 16px/1.5 Cantarell, sans-serif;
       text-transform: uppercase;
+      margin-bottom: 0.2rem;
+      padding: 0 0.4rem;
+      width: 100%;
     }
     ::placeholder {
-      color: silver;
+      color: darkgray;
     }
-    input[type=search]::-webkit-search-cancel-button,
-    input[type=search]::-webkit-search-decoration {
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
       -webkit-appearance: none;
     }
     .card {
       overflow: hidden;
       margin: 2rem 0;
-      border: 1px solid #555;
-      border-radius: 0.2em;
+      border: 1px solid;
+      border-radius: 0.1em;
       padding: 0;
     }
     .description {
-      padding: 0.6em 0.8em;
-      margin: 0.3em 0;
+      padding: 1rem;
     }
     .artist {
       font-weight: bold;
@@ -95,24 +135,23 @@
       content: ".";
     }
     .prompt {
-      color: #f9f9f9;
+      font: 16px/1.5 Cantarell, sans-serif;
+      color: hsla(0, 0%, 100%, 1);
       text-align: center;
-      margin-top: 1rem;
-      padding: 0.1rem;
+      text-transform: uppercase;
+      padding: 0.2rem 0.4rem;
+      margin-top: 2rem;
+      border-radius: 0.1em;
+      border: 1px solid hsla(0, 0%, 33%, 1);
     }
-    .intro {
-      background: mediumseagreen;
+    .index {
+      background: hsla(146, 46%, 46%, 1);
     }
-    .no-results {
-      background: #d9544d;
+    .notfound {
+      background-color: hsla(3, 49%, 55%, 1);
     }
     .footer {
       margin-bottom: 2em;
-      width: 100%;
-    }
-    .container {
-      margin: 0 auto;
-      max-width: 650px;
     }
     .row {
       display: flex;
@@ -121,80 +160,49 @@
     .column-full {
       flex: 100%;
     }
-    .column-half {
-      flex: 50%;
-    }
     .hidden {
       display: none;
     }
-    @media only screen and (max-width: 414px) {
-      header input {
-        margin-top: 1rem;
-        width: 100%;
-      }
-      header button {
-        margin-top: 1rem;
-        width: 100%;
-      }
-      .container {
-        width: 16rem;
-      }
-      .column-half {
-        flex: 100%;
-      }
-    }
   </style>
-  <noscript>Please enable Javascript in order to use the application.</noscript>
+  <noscript>Please enable Javascript in order to search.</noscript>
   <header>
-    <div class=container>
-      <div class=row>
-        <div class=column-half>
-          <h3>art</h3>
-        </div>
-        <div class=column-half>
-          <form>
-            <input type=search id=search placeholder="WILLIAM BLAKE...">
-            <button type=submit>
-              search
-            </button>
-          </form>
-        </div>
+    <div class="row">
+      <div class="column-full">
+        <h1>harvard art museums search</h1>
+      </div>
+      <div class="column-full">
+        <form>
+          <input type="search" id="search" placeholder="william blake..." />
+          <button type="submit">search</button>
+        </form>
       </div>
     </div>
   </header>
   <main>
-    <div class=container>
-      <div class="prompt intro view">
-        <small><a href=https://harvardartmuseums.org/>harvard art museums</a> search client</small>
+    <div class="prompt index view">
+      <p>Art is the sensuous presentation of ideas (Hegel).</p>
+    </div>
+    <div class="prompt notfound hidden">
+      <p>There are no results for that criteria.</p>
+    </div>
+    <div class="row">
+      <div class="column-full">
+        <div class="view deck"></div>
       </div>
-      <div class="prompt no-results hidden">
-        <small>there are no results for that critera</small>
-      </div>
-      <div class=row>
-        <div class=column-full>
-          <div class="view deck">
-          </div>
-        </div>
-      </div>
-      <div class=row>
-        <div class=column-full>
-          <div class="view hidden">
-          </div>
-        </div>
+    </div>
+    <div class="row">
+      <div class="column-full">
+        <div class="view hidden"></div>
       </div>
     </div>
   </main>
   <footer>
-    <div class=container>
-      <div class=row>
-        <div class=column-full>
-          <button class="footer hidden">
-            back to the top of the page
-          </button>
-        </div>
+    <div class="row">
+      <div class="column-full">
+        <button class="footer hidden">back to the top of the page</button>
       </div>
     </div>
   </footer>
-  <script src=js/data.js></script>
-  <script src=js/main.js></script>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
 </html>
