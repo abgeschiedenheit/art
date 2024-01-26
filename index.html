@@ -63,15 +63,17 @@
       box-sizing: border-box;
     }
     body {
-      font: 22px/1.5 EBGaramond, serif;
-      max-width: 620px;
+      background: #364fc7;
+      color: #fff3bf;
+      font: 26px/1.7 EBGaramond, serif;
+      max-width: 800px;
       word-spacing: 0.4rem;
       margin: 0 auto;
       padding: 0 2rem;
     }
     main {
       margin-top: 2rem;
-      border-top: 2px dotted silver;
+      border-top: 2px solid #fff3bf;
     }
     p {
       padding: 0;
@@ -82,6 +84,7 @@
       font-weight: normal;
       text-align: center;
       line-height: normal;
+      letter-spacing: 1px;
     }
     img {
       width: 100%;
@@ -93,28 +96,33 @@
       width: 100%;
     }
     input {
+      background: #364fc7;
+      color: #fff3bf;
+      border: 2px solid #fff3bf;
+      outline: 2px solid #5c7cfa;
       font: 16px/1.5 Cantarell, sans-serif;
+      letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 0.2rem;
       padding: 0 0.4rem;
       width: 100%;
     }
     ::placeholder {
-      color: darkgray;
+      color: silver;
     }
     input[type="search"]::-webkit-search-cancel-button,
     input[type="search"]::-webkit-search-decoration {
       -webkit-appearance: none;
     }
+    .card:first-child {
+      margin: 2rem 1rem;
+    }
     .card {
       overflow: hidden;
-      margin: 2rem 0;
-      border: 1px solid;
-      border-radius: 0.1em;
-      padding: 0;
+      margin: 8rem 1rem;
     }
     .description {
-      padding: 1rem;
+      text-align: right;
     }
     .artist {
       font-weight: bold;
