@@ -32,7 +32,7 @@ function request(keyword) {
     "GET",
     "https://api.harvardartmuseums.org/object?keyword=" +
       encodeURI(keyword) +
-      "&primaryimageurl:*&hasimage=1&q=imagepermissionlevel:1&size=16&fields=primaryimageurl,title,dated,people,culture&sort=random&apikey=8c10f88a-3252-4db8-b69c-a317f6353025"
+      "&primaryimageurl:*&hasimage=1&q=imagepermissionlevel:1&size=100&fields=primaryimageurl,title,dated,people,culture&sort=random&apikey=8c10f88a-3252-4db8-b69c-a317f6353025"
   );
   xhr.responseType = "json";
 
@@ -78,6 +78,14 @@ function request(keyword) {
       $description.append($culture);
       $description.append($title);
       $description.append($date);
+
+      $image.onerror = function () {
+        // Option 1: Hide the card if the image is broken
+        $card.style.display = "none";
+
+        // Option 2: Replace with a placeholder image
+        // $image.src = 'path_to_placeholder_image';
+      };
 
       $source.href = xhr.response.records[i].primaryimageurl;
       $image.src = xhr.response.records[i].primaryimageurl;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <meta charset="utf-8" />
-  <meta name="viewport" content="width-device-width" />
+  <meta name="viewport" content="width=device-width" />
   <meta name="viewport" content="initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <meta name="robots" content="noarchive" />
@@ -13,203 +13,287 @@
       font-style: normal;
       font-weight: normal;
     }
+
     @font-face {
       font-family: EBGaramond;
       src: url(EBGaramond-Italic.ttf) format(truetype);
       font-style: italic;
       font-weight: normal;
     }
+
     @font-face {
       font-family: EBGaramond;
       src: url(EBGaramond-Bold.ttf) format(truetype);
       font-style: normal;
       font-weight: bold;
     }
+
     @font-face {
       font-family: EBGaramond;
       src: url(EBGaramond-BoldItalic.ttf) format(truetype);
       font-style: italic;
       font-weight: bold;
     }
+
     @font-face {
       font-family: Cantarell;
       src: url(Cantarell-Regular.ttf) format(truetype);
       font-style: normal;
       font-weight: normal;
     }
+
     @font-face {
       font-family: Cantarell;
       src: url(Cantarell-Italic.ttf) format(truetype);
       font-style: italic;
       font-weight: normal;
     }
+
     @font-face {
       font-family: Cantarell;
       src: url(Cantarell-Bold.ttf) format(truetype);
       font-style: normal;
       font-weight: bold;
     }
+
     @font-face {
       font-family: Cantarell;
       src: url(Cantarell-BoldItalic.ttf) format(truetype);
       font-style: italic;
       font-weight: bold;
     }
+
     @font-face {
       font-family: Staatliches;
       src: url(Staatliches-Regular.ttf) format(truetype);
     }
+
     * {
       box-sizing: border-box;
     }
+
+    :root {
+      --nc-font-sans: Cantarell, sans-serif;
+      --nc-font-serif: EBGaramond, serif;
+      --nc-font-sans-header: Staatliches, sans-serif;
+      --nc-tx-1: #111111;
+      --nc-tx-2: #1a1a1a;
+      --nc-bg-1: #ffffff;
+      --nc-bg-2: #f6f8fa;
+      --nc-bg-3: #e5e7eb;
+      --nc-lk-1: #0070f3;
+      --nc-lk-2: #0366d6;
+      --nc-lk-tx: #ffffff;
+      --nc-ac-1: #79ffe1;
+      --nc-ac-tx: #0c4047;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --nc-tx-1: #f9f9f9;
+        --nc-tx-2: #eeeeee;
+        --nc-bg-1: #000000;
+        --nc-bg-2: #111111;
+        --nc-bg-3: #222222;
+        --nc-lk-1: #3291ff;
+        --nc-lk-2: #0070f3;
+        --nc-lk-tx: #ffffff;
+        --nc-ac-1: #7928ca;
+        --nc-ac-tx: #f9f9f9;
+      }
+    }
+
     body {
-      background: #364fc7;
-      color: #fff3bf;
-      font: 26px/1.7 EBGaramond, serif;
-      max-width: 800px;
-      word-spacing: 0.4rem;
+      /* Center body in page */
       margin: 0 auto;
       padding: 0 2rem;
+      border-radius: 6px;
+      overflow-x: hidden;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      background: var(--nc-bg-1);
+
+      font: 24px var(--nc-font-serif);
+      width: 100%;
+      word-spacing: 0.4rem;
+
+      /* Main body text */
+      color: var(--nc-tx-2);
     }
-    main {
-      margin-top: 2rem;
-      border-top: 2px solid #fff3bf;
+
+    ::selection {
+      /* Set background color for selected text */
+      background: var(--nc-ac-1);
+      color: var(--nc-ac-tx);
     }
-    p {
-      padding: 0;
-      margin: 0;
-    }
+
     h1 {
-      font-family: Staatliches, sans-serif;
+      font-family: var(--nc-font-sans-header);
+      color: var(--nc-tx-1);
       font-weight: normal;
       text-align: center;
-      line-height: normal;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
-    img {
-      width: 100%;
+
+    header {
+      background: var(--nc-bg-2);
+      border-bottom: 1px solid var(--nc-bg-3);
+      padding: 1rem 2rem;
+
+      /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
+
+      margin: -2rem calc(0px - (50vw - 50%)) 2rem;
+
+      /* Shorthand for:
+    
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+    
+      margin-left: calc(0px - (50vw - 50%));
+      margin-right: calc(0px - (50vw - 50%)); */
+
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
     }
+
     button {
-      font: 16px/1.5 Cantarell, sans-serif;
+      font: 18px var(--nc-font-sans);
       text-transform: uppercase;
       cursor: pointer;
+      letter-spacing: 1px;
       width: 100%;
+      padding: 6px 12px;
+      text-align: center;
+      white-space: nowrap;
+      background: var(--nc-lk-1);
+      border: 0;
+      border-radius: 4px;
+      color: var(--nc-lk-tx);
     }
+
+    .button:focus,
+    .button:hover,
+    button:focus,
+    button:hover,
+    input[type="submit"]:focus,
+    input[type="submit"]:hover {
+      background: var(--nc-lk-2);
+    }
+
     input {
-      background: #364fc7;
-      color: #fff3bf;
-      border: 2px solid #fff3bf;
-      outline: 2px solid #5c7cfa;
-      font: 16px/1.5 Cantarell, sans-serif;
+      padding: 6px 12px;
+      background: var(--nc-bg-2);
+      color: var(--nc-tx-2);
+
+      font: 18px var(--nc-font-sans);
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 0.2rem;
-      padding: 0 0.4rem;
       width: 100%;
+
+      /* Set a transparent border. It isn't visible on idle, but prevents the cell from growing in size when a darker border is set on focus. */
+      border: 1px solid var(--nc-bg-3);
+      border-radius: 4px;
+      margin-bottom: 1rem;
     }
+
+    .artwork {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
     ::placeholder {
-      color: silver;
+      color: gray;
     }
-    input[type="search"]::-webkit-search-cancel-button,
-    input[type="search"]::-webkit-search-decoration {
-      -webkit-appearance: none;
+
+    .deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-gap: 4rem;
     }
-    .card:first-child {
-      margin: 2rem 1rem;
-    }
+
     .card {
-      overflow: hidden;
-      margin: 8rem 1rem;
+      margin: 4rem 0;
     }
+
     .description {
-      text-align: right;
+      padding: 0 1.4rem;
+      text-align: center;
+      line-height: 1.5;
     }
+
     .artist {
       font-weight: bold;
     }
+
     .culture::before {
       content: " (";
     }
+
     .culture::after {
       content: "), ";
     }
+
     .title {
       font-style: italic;
     }
+
     .date::before {
       content: ", ";
     }
+
     .date::after {
       content: ".";
     }
+
+    .indicator {
+      display: grid;
+      place-items: center;
+    }
+
     .prompt {
-      font: 16px/1.5 Cantarell, sans-serif;
-      color: hsla(0, 0%, 100%, 1);
+      margin-top: 6rem;
+      font: 26px/1.5 EBGaramond, serif;
       text-align: center;
-      text-transform: uppercase;
-      padding: 0.2rem 0.4rem;
-      margin-top: 2rem;
-      border-radius: 0.1em;
-      border: 1px solid hsla(0, 0%, 33%, 1);
+      width: 70%;
     }
-    .index {
-      background: hsla(146, 46%, 46%, 1);
-    }
-    .notfound {
-      background-color: hsla(3, 49%, 55%, 1);
-    }
+
     .footer {
       margin-bottom: 2em;
     }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .column-full {
-      flex: 100%;
-    }
+
     .hidden {
       display: none;
     }
   </style>
   <noscript>Please enable Javascript in order to search.</noscript>
   <header>
-    <div class="row">
-      <div class="column-full">
-        <h1>harvard art museums search</h1>
-      </div>
-      <div class="column-full">
-        <form>
-          <input type="search" id="search" placeholder="william blake..." />
-          <button type="submit">search</button>
-        </form>
-      </div>
-    </div>
+    <h1>harvard art museums search</h1>
+    <form>
+      <input type="search" id="search" placeholder="william blake..." />
+      <button type="submit">search</button>
+    </form>
   </header>
   <main>
-    <div class="prompt index view">
-      <p>Art is the sensuous presentation of ideas (Hegel).</p>
-    </div>
-    <div class="prompt notfound hidden">
-      <p>There are no results for that criteria.</p>
-    </div>
-    <div class="row">
-      <div class="column-full">
-        <div class="view deck"></div>
+    <div class="indicator">
+      <div class="prompt index view">
+        <p>
+          What is art? […] Like a declaration of love: the consciousness of our
+          dependence on each other. A confession. An unconscious act that none
+          the less reflects the true meaning of life—love and sacrifice
+          (Tarkovsky).
+        </p>
+      </div>
+      <div class="prompt notfound hidden">
+        <p>There are no results for that criteria.</p>
       </div>
     </div>
-    <div class="row">
-      <div class="column-full">
-        <div class="view hidden"></div>
-      </div>
+    <div>
+      <div class="view deck"></div>
+      <div class="view hidden"></div>
     </div>
   </main>
   <footer>
-    <div class="row">
-      <div class="column-full">
-        <button class="footer hidden">back to the top of the page</button>
-      </div>
-    </div>
+    <button class="footer hidden">back to the top of the page</button>
   </footer>
   <script src="data.js"></script>
   <script src="main.js"></script>
