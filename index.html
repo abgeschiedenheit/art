@@ -88,29 +88,15 @@
       --nc-ac-tx: #0c4047;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --nc-tx-1: #f9f9f9;
-        --nc-tx-2: #eeeeee;
-        --nc-bg-1: #000000;
-        --nc-bg-2: #111111;
-        --nc-bg-3: #222222;
-        --nc-lk-1: #3291ff;
-        --nc-lk-2: #0070f3;
-        --nc-lk-tx: #ffffff;
-        --nc-ac-1: #7928ca;
-        --nc-ac-tx: #f9f9f9;
-      }
-    }
-
     body {
       /* Center body in page */
       margin: 0 auto;
-      padding: 0 4rem 1rem;
+      /* padding: 0 4rem 1rem; */
+      width: 620px;
       background: var(--nc-bg-1);
 
       font-family: var(--nc-font-serif);
-      word-spacing: 0.6rem;
+      word-spacing: 0.4rem;
 
       /* Main body text */
       color: var(--nc-tx-2);
@@ -131,9 +117,7 @@
 
     header {
       border-bottom: 1px solid var(--nc-bg-3);
-      padding: 1rem 4rem;
-      width: 800px;
-      margin: 0 auto;
+      padding: 2rem;
     }
 
     button {
@@ -151,10 +135,6 @@
       color: var(--nc-lk-tx);
     }
 
-    header button {
-      margin-bottom: 1rem;
-    }
-
     .button:focus,
     .button:hover,
     button:focus,
@@ -162,6 +142,11 @@
     input[type="submit"]:focus,
     input[type="submit"]:hover {
       background: var(--nc-lk-2);
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
     }
 
     input {
@@ -189,19 +174,31 @@
       color: gray;
     }
 
-    .deck {
+    img {
+      border: 1px solid var(--nc-tx-1);
+    }
+
+    /* .deck {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: 4rem;
+    } */
+
+    .card:first-child {
+      margin-top: 4rem;
+    }
+
+    .card:last-child {
+      margin-bottom: 4rem;
     }
 
     .card {
-      margin: 3rem 0;
+      margin: 12rem 0;
     }
 
     .description {
-      padding: 0 1.4rem;
-      text-align: center;
+      text-align: right;
+      padding: 1rem 0;
       line-height: 1.8;
     }
 
@@ -235,15 +232,27 @@
     }
 
     .prompt {
-      margin-top: 6rem;
-      font-family: EBGaramond, serif;
-      line-height: 1.5;
+      margin-top: 4rem;
+      font-family: var(--nc-font-sans);
       text-align: center;
-      width: 70%;
+      width: 100%;
+      padding: 6px 12px;
+      letter-spacing: 1px;
+
+      color: hsla(0, 0%, 100%, 1);
+      border-radius: 4px;
+    }
+
+    .index {
+      background: hsla(146, 46%, 46%, 1);
+    }
+
+    .notfound {
+      background-color: hsla(3, 49%, 55%, 1);
     }
 
     .footer {
-      margin-bottom: 2em;
+      margin-bottom: 3rem;
     }
 
     .hidden {
@@ -262,10 +271,7 @@
     <div class="indicator">
       <div class="prompt index view">
         <p>
-          What is art? […] Like a declaration of love: the consciousness of our
-          dependence on each other. A confession. An unconscious act that none
-          the less reflects the true meaning of life—love and sacrifice
-          (Tarkovsky).
+          Art is the sensuous presentation of ideas (Hegel).
         </p>
       </div>
       <div class="prompt notfound hidden">
