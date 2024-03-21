@@ -1,86 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="viewport" content="initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
-  <meta name="robots" content="noarchive" />
-  <title>art</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="noarchive">
+    <title>harvard art museums search</title>
+  </head>
   <style>
     @font-face {
-      font-family: EBGaramond;
-      src: url(EBGaramond-Regular.ttf) format(truetype);
+      font-family: "Grotesque";
+      src: url("./assets/fonts/grotesque_roman.woff2") format("woff2");
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Grotesque";
+      src: url("./assets/fonts/grotesque_italic.woff2") format("woff2");
+      font-style: italic;
+    }
+
+    @font-face {
+      font-family: "Principia";
+      src: url("./assets/fonts/principia.woff2");
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "EBGaramond";
+      src: url("assets/fonts/EBGaramond-Regular.ttf") format(truetype);
       font-style: normal;
       font-weight: normal;
     }
 
     @font-face {
-      font-family: EBGaramond;
-      src: url(EBGaramond-Italic.ttf) format(truetype);
+      font-family: "EBGaramond";
+      src: url("assets/fonts/EBGaramond-Italic.ttf") format(truetype);
       font-style: italic;
       font-weight: normal;
     }
 
     @font-face {
-      font-family: EBGaramond;
-      src: url(EBGaramond-Bold.ttf) format(truetype);
+      font-family: "EBGaramond";
+      src: url("assets/fonts/EBGaramond-Bold.ttf") format(truetype);
       font-style: normal;
       font-weight: bold;
     }
 
     @font-face {
-      font-family: EBGaramond;
-      src: url(EBGaramond-BoldItalic.ttf) format(truetype);
+      font-family: "EBGaramond";
+      src: url("assets/fonts/EBGaramond-BoldItalic.ttf") format(truetype);
       font-style: italic;
       font-weight: bold;
-    }
-
-    @font-face {
-      font-family: Cantarell;
-      src: url(Cantarell-Regular.ttf) format(truetype);
-      font-style: normal;
-      font-weight: normal;
-    }
-
-    @font-face {
-      font-family: Cantarell;
-      src: url(Cantarell-Italic.ttf) format(truetype);
-      font-style: italic;
-      font-weight: normal;
-    }
-
-    @font-face {
-      font-family: Cantarell;
-      src: url(Cantarell-Bold.ttf) format(truetype);
-      font-style: normal;
-      font-weight: bold;
-    }
-
-    @font-face {
-      font-family: Cantarell;
-      src: url(Cantarell-BoldItalic.ttf) format(truetype);
-      font-style: italic;
-      font-weight: bold;
-    }
-
-    @font-face {
-      font-family: Staatliches;
-      src: url(Staatliches-Regular.ttf) format(truetype);
     }
 
     * {
       box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     :root {
-      --nc-font-sans: Cantarell, sans-serif;
-      --nc-font-serif: EBGaramond, serif;
-      --nc-font-sans-header: Staatliches, sans-serif;
+      --nc-font-sans: "Grotesque", sans-serif;
+      --nc-font-serif: "EBGaramond", serif;
+      --nc-font-sans-header: "Principia", serif;
       --nc-tx-1: #111111;
       --nc-tx-2: #1a1a1a;
       --nc-bg-1: #ffffff;
-      --nc-bg-2: #f6f8fa;
-      --nc-bg-3: #e5e7eb;
+      --nc-bg-2: whitesmoke;
+      --nc-bg-3: gainsboro;
       --nc-lk-1: #0070f3;
       --nc-lk-2: #0366d6;
       --nc-lk-tx: #ffffff;
@@ -92,14 +81,15 @@
       /* Center body in page */
       margin: 0 auto;
       padding: 1rem 2rem;
-      width: 620px;
+      max-width: 600px;
       background: var(--nc-bg-1);
 
       font-family: var(--nc-font-serif);
-      word-spacing: 0.6rem;
+      word-spacing: 0.4rem;
 
       /* Main body text */
       color: var(--nc-tx-2);
+      overflow-x: hidden;
     }
 
     ::selection {
@@ -111,24 +101,38 @@
     h1 {
       font-family: var(--nc-font-sans-header);
       color: var(--nc-tx-1);
-      font-weight: normal;
       text-align: center;
+      letter-spacing: 1px;
+      font-weight: normal;
+      text-transform: capitalize;
     }
 
     header {
-      /* border-bottom: 1px solid var(--nc-bg-3); */
-      padding: 1rem 2rem;
-    }
+      background: var(--nc-bg-2);
+	    border-bottom: 1.4px solid var(--nc-bg-3);
+	    padding: 2rem 1.5rem;
+	
+	    /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
 
-    hr {
-      border: 1px solid var(--nc-bg-3);
+	    margin: -2rem calc(50% - 50vw) 2rem;
+
+	    /* Shorthand for:
+
+	    margin-top: -2rem;
+	    margin-bottom: 2rem;
+
+	    margin-left: calc(50% - 50vw);
+	    margin-right: calc(50% - 50vw); */
+
+	    padding-left: calc(50vw - 50%);
+	    padding-right: calc(50vw - 50%);
     }
 
     button {
       font-family: var(--nc-font-sans);
       text-transform: uppercase;
       cursor: pointer;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       width: 100%;
       padding: 6px 12px;
       text-align: center;
@@ -153,20 +157,25 @@
       margin: 0;
     }
 
+    /* form {
+      padding: 0 4rem 1rem;
+    } */
+
     input {
       padding: 6px 12px;
-      background: var(--nc-bg-2);
+      /* background: var(--nc-bg-2); */
       color: var(--nc-tx-2);
+      font-weight: normal;
 
       font-family: var(--nc-font-sans);
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       width: 100%;
 
       /* Set a transparent border. It isn't visible on idle, but prevents the cell from growing in size when a darker border is set on focus. */
-      border: 1px solid var(--nc-bg-3);
+      border: 1.4px solid var(--nc-bg-3);
       border-radius: 4px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.6rem;
     }
 
     .artwork {
@@ -175,7 +184,7 @@
     }
 
     ::placeholder {
-      color: gray;
+      color: #b0b0b0;
     }
 
     /* .deck {
@@ -185,7 +194,7 @@
     } */
 
     .card:first-child {
-      margin-top: 4rem;
+      margin-top: 2rem;
     }
 
     .card:last-child {
@@ -197,10 +206,10 @@
     }
 
     .description {
-      text-align: right;
-      padding: 1rem 0;
-      line-height: 1.8;
-      font-size: 130%;
+      text-align: center;
+      padding: 1rem;
+      line-height: 1.6;
+      font-size: 120%;
     }
 
     .artist {
@@ -239,7 +248,7 @@
       padding: 6px 12px;
       letter-spacing: 1px;
 
-      color: hsla(0, 0%, 100%, 1);
+      color: var(--nc-lk-tx);
       border-radius: 4px;
     }
 
@@ -252,7 +261,7 @@
     }
 
     .footer {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     .hidden {
@@ -260,33 +269,34 @@
     }
   </style>
   <noscript>Please enable Javascript in order to search.</noscript>
-  <header>
-    <h1>harvard art museums search</h1>
-    <form>
-      <input type="search" id="search" placeholder="william blake..." />
-      <button type="submit">search</button>
-    </form>
-  </header>
-  <main>
-    <hr>
-    <div class="indicator">
-      <div class="prompt index view">
-        <p>
-          Art is the sensuous presentation of ideas (Hegel).
-        </p>
+  <body>
+    <header>
+      <h1>harvard art museums search</h1>
+      <form>
+        <input type="search" id="search" placeholder="william blake..." />
+        <button type="submit">search</button>
+      </form>
+    </header>
+    <main>
+      <div class="indicator">
+        <div class="prompt index view">
+          <p>
+            <em>Art is the sensuous presentation of ideas</em>.
+          </p>
+        </div>
+        <div class="prompt notfound hidden">
+          <p>There are no results for that criteria.</p>
+        </div>
       </div>
-      <div class="prompt notfound hidden">
-        <p>There are no results for that criteria.</p>
+      <div>
+        <div class="view deck"></div>
+        <div class="view hidden"></div>
       </div>
-    </div>
-    <div>
-      <div class="view deck"></div>
-      <div class="view hidden"></div>
-    </div>
-  </main>
-  <footer>
-    <button class="footer hidden">back to the top of the page</button>
-  </footer>
+    </main>
+    <footer>
+      <button class="footer hidden">back to the top of the page</button>
+    </footer>
+  </body>
   <script src="data.js"></script>
   <script src="main.js"></script>
 </html>
