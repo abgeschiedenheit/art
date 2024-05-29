@@ -1,0 +1,141 @@
+ * {
+     box-sizing: border-box;
+}
+ :root {
+     --nc-tx-1: #111111;
+     --nc-tx-2: #1a1a1a;
+     --nc-bg-1: #ffffff;
+     --nc-bg-2: whitesmoke;
+     --nc-bg-3: gainsboro;
+     --nc-lk-1: #0070f3;
+     --nc-lk-2: #0366d6;
+     --nc-lk-tx: #ffffff;
+     --nc-ac-1: #79ffe1;
+     --nc-ac-tx: #0c4047;
+}
+ body {
+     margin: 0 auto;
+     font-size: 130%;
+	 line-height: 1.3;
+     max-width: 720px;
+     padding: 2rem;
+     background-color: var(--nc-bg-1);
+     color: var(--nc-tx-2);
+     overflow-x: hidden;
+}
+ h1 {
+     color: var(--nc-tx-1);
+     text-align: center;
+     text-transform: capitalize;
+}
+ header {
+     background-color: var(--nc-bg-2);
+     padding: 1rem 2rem;
+     border: 2px solid var(--nc-bg-3);
+     margin: 0 auto;
+}
+ button {
+     text-transform: uppercase;
+     cursor: pointer;
+     letter-spacing: 2px;
+     padding: 6px 12px;
+     background: var(--nc-lk-1);
+     border: 0;
+     border-radius: 4px;
+     color: var(--nc-lk-tx);
+}
+ footer button {
+     width: 100%;
+}
+ .button:focus, .button:hover, button:focus, button:hover, input[type="submit"]:focus, input[type="submit"]:hover {
+     background: var(--nc-lk-2);
+}
+ form {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+}
+ input {
+     padding: 6px 12px;
+    /* background: var(--nc-bg-2);
+     */
+     color: var(--nc-tx-2);
+     font-weight: normal;
+     letter-spacing: 2px;
+     text-transform: uppercase;
+     flex: 1;
+    /* Set a transparent border. It isn't visible on idle, but prevents the cell from growing in size when a darker border is set on focus. */
+     border: 1.4px solid var(--nc-bg-3);
+     border-radius: 4px;
+}
+ form button {
+     margin-left: 10px;
+}
+ .artwork {
+     max-width: 100%;
+     max-height: 100%;
+}
+ ::placeholder {
+     color: #555;
+}
+ .deck {
+    /* display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+     grid-gap: 4rem;
+     */
+     margin: 4rem 0;
+}
+ .card {
+     margin: 8rem 0;
+}
+ .card:first-child {
+     margin: inherit;
+}
+ .card:last-child {
+     margin: inherit;
+}
+ .description {
+     text-align: center;
+     padding: 0 0.6rem;
+}
+ .artist {
+     font-weight: bold;
+}
+ .culture::before {
+     content: " (";
+}
+ .culture::after {
+     content: "), ";
+}
+ .title {
+     font-style: italic;
+}
+ .date::before {
+     content: ", ";
+}
+ .date::after {
+     content: ".";
+}
+ .indicator {
+     display: grid;
+     place-items: center;
+}
+ .prompt {
+     margin-top: 2rem;
+     text-align: center;
+     padding: 0px 12px;
+     width: 100%;
+     color: var(--nc-lk-tx);
+}
+ .index {
+     background-color: #006700;
+}
+ .notfound {
+     background-color: #9c1500;
+}
+ .footer {
+     margin-bottom: 2rem;
+}
+ .hidden {
+     display: none;
+}
