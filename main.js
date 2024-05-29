@@ -45,8 +45,8 @@ function request(keyword) {
   xhr.open(
     "GET",
     "https://api.harvardartmuseums.org/object?keyword=" +
-      encodeURI(keyword) +
-      "&primaryimageurl:*&hasimage=1&q=imagepermissionlevel:1&size=100&fields=primaryimageurl,title,dated,people,culture&sort=random&apikey=8c10f88a-3252-4db8-b69c-a317f6353025"
+    encodeURI(keyword) +
+    "&primaryimageurl:*&hasimage=1&q=imagepermissionlevel:1&size=100&fields=primaryimageurl,title,dated,people,culture&sort=random&apikey=8c10f88a-3252-4db8-b69c-a317f6353025"
   );
   xhr.responseType = "json";
 
