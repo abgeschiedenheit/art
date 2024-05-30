@@ -1,11 +1,11 @@
 const $form = document.querySelector("form");
 const $input = document.querySelector("input[type='search']");
 const $deck = document.querySelector(".deck");
-const $top = document.querySelector(".footer");
+// const $top = document.querySelector(".footer");
 const $root = document.documentElement;
 
 // Event listener to scroll to the top smoothly
-$top.addEventListener("click", scrollToTop);
+// $top.addEventListener("click", scrollToTop);
 
 // Event listener for form submission
 $form.addEventListener("submit", handleFormSubmit);
@@ -71,10 +71,12 @@ function handleApiResponse(response) {
     }
   });
 
+  document.querySelector(".deck").classList.remove("hidden");
   document.querySelector(".index").classList.add("hidden");
+  document.querySelector("header").classList.add("hidden");
   document.querySelector(".notfound").classList.add("hidden");
-  $top.classList.add("view");
-  $top.classList.remove("hidden");
+  // $top.classList.add("view");
+  // $top.classList.remove("hidden");
 }
 
 // Function to clear the deck
@@ -89,41 +91,39 @@ function clearDeck() {
 function showNotFoundMessage() {
   document.querySelector(".index").classList.add("hidden");
   document.querySelector(".notfound").classList.remove("hidden");
-  $top.classList.add("hidden");
-  $top.classList.remove("view");
+  // $top.classList.add("hidden");
+  // $top.classList.remove("view");
 }
 
 // Function to create and append a card to the deck
 function createAndAppendCard(record) {
-  let $card = document.createElement("div");
+  let $figure = document.createElement("figure");
   let $source = document.createElement("a");
   let $image = document.createElement("img");
-  let $description = document.createElement("p");
+  let $figcaption = document.createElement("figcaption");
   let $title = document.createElement("span");
   let $date = document.createElement("span");
   let $artist = document.createElement("span");
   let $culture = document.createElement("span");
 
-  $card.className = "card";
   $image.className = "artwork";
-  $description.className = "description";
   $artist.className = "artist";
   $culture.className = "culture";
   $title.className = "title";
   $date.className = "date";
 
-  $deck.append($card);
-  $card.append($source);
+  $deck.append($figure);
+  $figure.append($source);
   $source.append($image);
-  $card.append($description);
-  $description.append($artist);
-  $description.append($culture);
-  $description.append($title);
-  $description.append($date);
+  $figure.append($figcaption);
+  $figcaption.append($artist);
+  $figcaption.append($culture);
+  $figcaption.append($title);
+  $figcaption.append($date);
 
   $image.onerror = function () {
     // Option 1: Hide the card if the image is broken
-    $card.style.display = "none";
+    $figure.style.display = "none";
 
     // Option 2: Replace with a placeholder image
     // $image.src = 'path_to_placeholder_image';
@@ -138,6 +138,6 @@ function createAndAppendCard(record) {
 
   $image.alt = $title.textContent;
   $image.title = $title.textContent;
-  $description.alt = $artist.textContent;
-  $description.title = $artist.textContent;
+  $figcaption.alt = $artist.textContent;
+  $figcaption.title = $artist.textContent;
 }

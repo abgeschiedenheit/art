@@ -10,33 +10,25 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <noscript>Please enable Javascript in order to search.</noscript>
+    <noscript>Please enable Javascript in order to use the search functionality.</noscript>
     <header>
       <h1>harvard art museums search</h1>
       <form>
         <input type="search" id="search" placeholder="william blake...">
         <button type="submit">search</button>
       </form>
+      <div class="prompt index view">
+        <p>Art does not imitate nature, it imitates a creation, sometimes to propose an alternative world, sometimes simply to amplify, to confirm, to make social the brief hope offered by nature (John Berger).</p>
+      </div>
+      <div class="prompt notfound hidden">
+        <p>There are no results for that criteria. Try another query.</p>
+      </div>
     </header>
-    <main>
-      <div class="indicator">
-        <div class="prompt index view">
-          <p>
-            Art does not imitate nature, it imitates a creation, sometimes to propose an alternative world, sometimes simply to amplify, to confirm, to make social the brief hope offered by nature (John Berger).
-          </p>
-        </div>
-        <div class="prompt notfound hidden">
-          <p>There are no results for that criteria.</p>
-        </div>
-      </div>
-      <div>
-        <div class="view deck"></div>
-        <div class="view hidden"></div>
-      </div>
+    <main class="hidden deck">
     </main>
-    <footer>
+    <!-- <footer>
       <button class="footer hidden">back to the top of the page</button>
-    </footer>
+    </footer> -->
     <script src="data.js"></script>
     <script src="main.js"></script>
   </body>
