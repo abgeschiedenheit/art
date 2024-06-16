@@ -1,3 +1,0 @@
-- Think about whether I should add a "back to the top of the page" button element (up-pointing arrow icon) at the bottom right of the "deck" view (i.e., the main section, as opposed to a footer section outside of main which it previously held and now wouldn't work)
-
-- Add "search" button element (icon) at the top right of the "deck" view which would just refresh the page

@@ -39,21 +39,14 @@ function handleFormSubmit(event) {
   $form.reset();
 }
 
-// Function to send an API request
+// Function to send an API request using fetch
 function request(keyword) {
-  const xhr = new XMLHttpRequest();
-  xhr.open(
-    "GET",
-    "https://api.harvardartmuseums.org/object?keyword=" +
-    encodeURI(keyword) +
-    "&primaryimageurl:*&hasimage=1&q=imagepermissionlevel:1&size=100&fields=primaryimageurl,title,dated,people,culture&sort=random&apikey=8c10f88a-3252-4db8-b69c-a317f6353025"
-  );
-  xhr.responseType = "json";
+  const url = `https://api.harvardartmuseums.org/object?keyword=${encodeURI(keyword)}&primaryimageurl:*&hasimage=1&q=imagepermissionlevel:1&size=100&fields=primaryimageurl,title,dated,people,culture&sort=random&apikey=8c10f88a-3252-4db8-b69c-a317f6353025`;
 
-  xhr.addEventListener("load", function () {
-    handleApiResponse(xhr.response);
-  });
-  xhr.send();
+  fetch(url)
+    .then(response => response.json())
+    .then(data => handleApiResponse(data))
+    .catch(error => console.error('Error fetching data:', error));
 }
 
 // Function to handle the API response
