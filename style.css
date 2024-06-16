@@ -6,6 +6,7 @@
 
 body {
   font-family: sans-serif;
+  line-height: 1.5;
 }
 
 .deck {
@@ -85,8 +86,6 @@ figcaption {
   font-family: sans-serif;
   text-align: right;
   width: 60%;
-  word-spacing: 8px;
-  font-size: 120%;
 }
 
 .artist {
