@@ -41,7 +41,7 @@ function handleFormSubmit(event) {
 
 // Function to send an API request using fetch
 function request(keyword) {
-  const url = `https://api.harvardartmuseums.org/object?keyword=${encodeURI(keyword)}&primaryimageurl:*&hasimage=1&q=imagepermissionlevel:1&size=100&fields=primaryimageurl,title,dated,people,culture&sort=random&apikey=8c10f88a-3252-4db8-b69c-a317f6353025`;
+  const url = `https://api.harvardartmuseums.org/object?keyword=${encodeURI(keyword)}&primaryimageurl:*&hasimage=1&q=imagepermissionlevel:1&size=100&fields=primaryimageurl,title,dated,people,culture,colors&sort=random&apikey=8c10f88a-3252-4db8-b69c-a317f6353025`;
 
   fetch(url)
     .then(response => response.json())
@@ -133,4 +133,20 @@ function createAndAppendCard(record) {
   $image.title = $title.textContent;
   $figcaption.alt = $artist.textContent;
   $figcaption.title = $artist.textContent;
+
+  // Set the background color of the figure to the most dominant color
+  if (record.colors && record.colors.length > 0) {
+    const dominantColor = record.colors.reduce((prev, current) => (prev.percent > current.percent) ? prev : current);
+    $figure.style.backgroundColor = dominantColor.color;
+    $figcaption.style.color = getContrastYIQ(dominantColor.color);
+  }
+}
+
+function getContrastYIQ(hexcolor){
+  hexcolor = hexcolor.replace("#", "");
+  var r = parseInt(hexcolor.substr(0,2),16);
+  var g = parseInt(hexcolor.substr(2,2),16);
+  var b = parseInt(hexcolor.substr(4,2),16);
+  var yiq = ((r*299)+(g*587)+(b*114))/1000;
+  return (yiq >= 128) ? '#000' : '#fff';
 }
