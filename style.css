@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "ltr";
+  src: url("./fonts/ltr.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "trib";
+  src: url("./fonts/trib.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "trib";
+  src: url("./fonts/trib-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: normal;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +27,6 @@
 
 body {
   font-family: sans-serif;
-  line-height: 1.5;
 }
 
 .deck {
@@ -25,6 +45,8 @@ header {
 }
 
 h1 {
+  font-family: "ltr", serif;
+  font-weight: normal;
   text-align: center;
   line-height: 1.3;
   margin-bottom: 2rem;
@@ -83,13 +105,16 @@ figure {
 }
 
 figcaption {
-  font-family: sans-serif;
-  text-align: right;
-  width: 60%;
+  font-family: "trib", serif;
+  font-size: 110%;
+  text-align: center;
+  width: 400px;
+  line-height: 1.5;
 }
 
 .artist {
   font-weight: bold;
+  letter-spacing: 0.4px;
 }
 
 .culture::before {
@@ -115,6 +140,7 @@ figcaption {
 .prompt {
   margin: 2rem auto;
   text-align: center;
+  line-height: 1.3;
   width: 60%;
 }
 
